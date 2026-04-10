@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdelkhaled Zerouali — Data Engineer</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #1a1612;
+  color: #d4cdc4;
+  line-height: 1.5;
+}
+
+a { color: #d4a574; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.page {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+.card {
+  background: #221e19;
+  border: 1px solid #2e2822;
+  border-radius: 10px;
+  padding: 24px 22px;
+}
+
+.profile { text-align: center; }
+
+.profile-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #3a3228;
+  margin: 0 auto 14px;
+  background: #2a2520;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+.profile-photo span { font-size: 44px; color: #5a5045; }
+
+.profile h1 { font-size: 21px; color: #ede6dd; margin-bottom: 8px; font-weight: 600; }
+.profile p { font-size: 13.5px; color: #9a9088; margin-bottom: 14px; line-height: 1.55; }
+
+.btn-cv {
+  display: inline-block;
+  padding: 7px 18px;
+  border: 1px solid #3a3228;
+  border-radius: 6px;
+  color: #d4cdc4;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.btn-cv:hover { border-color: #d4a574; text-decoration: none; color: #d4a574; }
+
+.info-list { list-style: none; }
+.info-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid #2e2822;
+  font-size: 13px;
+}
+.info-list li:last-child { border-bottom: none; }
+.info-label { color: #8a8278; }
+.info-value { color: #d4cdc4; text-align: right; }
+
+/* STACK SIDEBAR */
+.stack-title {
+  font-size: 12px;
+  color: #8a8278;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stack-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  background: #2a2520;
+  color: #b0a898;
+  border-radius: 14px;
+  border: 1px solid #342e28;
+}
+
+/* MAIN */
+.main { min-width: 0; }
+
+.main-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.main-header h2 { font-size: 17px; color: #ede6dd; font-weight: 600; }
+.main-header span { font-size: 13px; color: #8a8278; }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.project {
+  background: #221e19;
+  border: 1px solid #2e2822;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.project:hover { border-color: #3a3228; }
+
+.project-title {
+  font-size: 13.5px;
+  color: #ede6dd;
+  padding: 13px 15px 9px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.project-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: #1a1612;
+  border-top: 1px solid #2e2822;
+  border-bottom: 1px solid #2e2822;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.project-img img { width: 100%; height: 100%; object-fit: contain; }
+.project-img .placeholder { text-align: center; color: #5a5045; font-size: 11px; padding: 16px; }
+.project-img .placeholder .icon { font-size: 24px; margin-bottom: 4px; }
+
+.project-desc {
+  font-size: 12.5px;
+  color: #9a9088;
+  padding: 11px 15px 14px;
+  line-height: 1.55;
+}
+
+.project-tags { padding: 0 15px 12px; display: flex; flex-wrap: wrap; gap: 4px; }
+.tag {
+  font-size: 10.5px;
+  padding: 2px 8px;
+  background: #2a2520;
+  color: #8a8278;
+  border-radius: 10px;
+}
+
+.project-link { display: block; padding: 0 15px 12px; font-size: 12px; }
+
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .projects { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="sidebar">
+
+    <div class="card profile">
+      <div class="profile-photo">
+        <!-- ÉTAPE 1 : remplace la ligne ci-dessous par <img src="photo.jpg" alt="Abdel"> -->
+        <img src="photo.jpg" alt="Abdel">
+      </div>
+      <h1>Abdel Zerouali</h1>
+      <p>Data Engineer (Titre RNCP niveau 7 — OpenClassrooms)<br>
+      Spécialisé en pipelines data, orchestration et bases de données.</p>
+      <!-- ÉTAPE 2 : remplace le # par le lien vers ton CV PDF, ex: href="cv.pdf" -->
+      <a href="#" class="btn-cv">Télécharger le CV</a>
+    </div>
+
+    <div class="card">
+      <ul class="info-list">
+        <li><span class="info-label">📍 Localisation</span><span class="info-value">Grenoble, France</span></li>
+        <li><span class="info-label">🎓 Formation</span><span class="info-value">OpenClassrooms Data Engineer</span></li>
+        <li><span class="info-label">💻 GitHub</span><span class="info-value"><a href="https://github.com/Khalid318">Khalid318</a></span></li>
+        <li><span class="info-label">🔗 LinkedIn</span><span class="info-value"><a href="https://www.linkedin.com/in/abdelkhaled-zerouali">LinkedIn</a></span></li>
+        <!-- ÉTAPE 3 : remplace ton email -->
+        <li><span class="info-label">📧 Email</span><span class="info-value">abdelkhaledzerouali@gmail.com</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="stack-title">Technologies</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">SQL</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">MongoDB</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">Airflow</span>
+        <span class="stack-tag">Kestra</span>
+        <span class="stack-tag">Airbyte</span>
+        <span class="stack-tag">AWS</span>
+        <span class="stack-tag">Power BI</span>
+        <span class="stack-tag">PySpark</span>
+        <span class="stack-tag">Redpanda</span>
+        <span class="stack-tag">LangChain</span>
+        <span class="stack-tag">Faiss</span>
+        <span class="stack-tag">Pandas</span>
+        <span class="stack-tag">Polars</span>
+        <span class="stack-tag">Scikit-learn</span>
+        <span class="stack-tag">SODA Core</span>
+        <span class="stack-tag">Git</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="main">
+    <div class="main-header">
+      <h2>Projets</h2>
+      <span>— Parcours Data Engineer · 12 projets</span>
+    </div>
+
+    <div class="projects">
+
+      <div class="project">
+        <div class="project-title">Pipeline ELT — Avantages sportifs</div>
+        <div class="project-img">
+          <!-- <img src="img/p12.png" alt="P12"> -->
+          <img src="img/p12.png" alt="P12">
+        </div>
+        <div class="project-desc">Pipeline ELT complet pour calculer les avantages sportifs de 161 salariés : primes, jours bien-être, alertes Slack, dashboard Power BI. 5 DAGs Airflow, 15 tests SODA.</div>
+        <div class="project-tags"><span class="tag">Airflow</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">SODA</span><span class="tag">Power BI</span></div>
+        <a class="project-link" href="https://github.com/Khalid318/p12-pipeline" target="_blank">Voir le repo →</a>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Système IA du POC au MVP</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🚀</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Conception du passage du chatbot RAG vers un MVP production-ready. Architecture cloud AWS, mémoire conversationnelle, monitoring, estimation CAPEX/OPEX.</div>
+        <div class="project-tags"><span class="tag">AWS</span><span class="tag">Architecture</span><span class="tag">Gestion de projet</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Conception et déploiement d'un système RAG</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🤖</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Chatbot RAG pour recommander des événements culturels à Versailles. 1 374 événements collectés via API Open Agenda, vectorisation Mistral, index Faiss.</div>
+        <div class="project-tags"><span class="tag">LangChain</span><span class="tag">Mistral AI</span><span class="tag">Faiss</span><span class="tag">Python</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Automatisation ETL — Caviste BottleNeck</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🍷</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Rapprochement automatisé de 3 fichiers Excel, détection d'anomalies (z-score), calcul du CA (70 568,60€), cron mensuel alimenté depuis AWS S3.</div>
+        <div class="project-tags"><span class="tag">Kestra</span><span class="tag">AWS S3</span><span class="tag">DuckDB</span><span class="tag">Python</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Architecture hybride cloud + streaming</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">☁️</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Modélisation d'une infra hybride on-premise / AWS pour données IoT. POC streaming : tickets clients en temps réel avec Redpanda, traitement PySpark.</div>
+        <div class="project-tags"><span class="tag">Redpanda</span><span class="tag">PySpark</span><span class="tag">Docker</span><span class="tag">AWS</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Construire et tester une infrastructure de données</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🌤️</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Pipeline de collecte météo pour un fournisseur d'énergie renouvelable. 6 stations intégrées via Airbyte, stockage S3, chargement MongoDB sur AWS ECS.</div>
+        <div class="project-tags"><span class="tag">Airbyte</span><span class="tag">AWS S3/ECS</span><span class="tag">MongoDB</span><span class="tag">Python</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Base NoSQL — Locations Airbnb</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🏠</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Base MongoDB pour surveiller les locations courte durée à Paris et Lyon. Réplication (haute dispo), sharding géographique (performance), analyses Polars.</div>
+        <div class="project-tags"><span class="tag">MongoDB</span><span class="tag">Polars</span><span class="tag">Docker</span><span class="tag">Power BI</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Prédiction de consommation énergétique</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">⚡</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Modèle ML pour prédire la consommation des bâtiments de Seattle. Comparaison de 4 algos, R²=0.745 (Random Forest). API BentoML déployée sur AWS EC2.</div>
+        <div class="project-tags"><span class="tag">Scikit-learn</span><span class="tag">BentoML</span><span class="tag">AWS EC2</span><span class="tag">Pandas</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Migration de données Healthcare</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🏥</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Migration de 55 500 dossiers patients (CSV → MongoDB). Authentification 2 niveaux, 3 index, 7 tests pytest. Conteneurisé avec Docker Compose.</div>
+        <div class="project-tags"><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Python</span><span class="tag">pytest</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Audit d'un environnement de données</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🔍</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Audit du CA d'un supermarché. Root cause : insertions tardives (+9 057€). Triggers, procédures stockées et vues SQL pour fiabiliser le reporting Power BI.</div>
+        <div class="project-tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Power BI</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Création d'une BDD immobilière</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">🏗️</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Schéma normalisé à partir de données DVF. 5 tables (Region, Departement, Commune, Bien, Vente), clés primaires/étrangères, dictionnaire de données.</div>
+        <div class="project-tags"><span class="tag">SQL</span><span class="tag">Modélisation</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-title">Analyse des systèmes éducatifs</div>
+        <div class="project-img">
+          <div class="placeholder"><div class="icon">📈</div>Ajouter screenshot</div>
+        </div>
+        <div class="project-desc">Analyse exploratoire de données Banque Mondiale (886 930 lignes). Sélection de 15 indicateurs pour identifier les pays à potentiel éducatif.</div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Jupyter</span></div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
