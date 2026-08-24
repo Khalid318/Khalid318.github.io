@@ -1,378 +1,136 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdelkhaled Zerouali — Data Engineer</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #1a1612;
-  color: #d4cdc4;
-  line-height: 1.5;
-}
-
-a { color: #d4a574; text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-.page {
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  min-height: 100vh;
-  max-width: 1400px;
-  margin: 0 auto;
-  gap: 20px;
-  padding: 20px;
-}
-
-/* SIDEBAR */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: sticky;
-  top: 20px;
-  align-self: start;
-}
-
-.card {
-  background: #221e19;
-  border: 1px solid #2e2822;
-  border-radius: 10px;
-  padding: 24px 22px;
-}
-
-.profile { text-align: center; }
-
-.profile-photo {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid #3a3228;
-  margin: 0 auto 14px;
-  background: #2a2520;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
-.profile-photo span { font-size: 44px; color: #5a5045; }
-
-.profile h1 { font-size: 21px; color: #ede6dd; margin-bottom: 8px; font-weight: 600; }
-.profile p { font-size: 13.5px; color: #9a9088; margin-bottom: 14px; line-height: 1.55; }
-
-.btn-cv {
-  display: inline-block;
-  padding: 7px 18px;
-  border: 1px solid #3a3228;
-  border-radius: 6px;
-  color: #d4cdc4;
-  font-size: 13px;
-  transition: all 0.2s;
-}
-.btn-cv:hover { border-color: #d4a574; text-decoration: none; color: #d4a574; }
-
-.info-list { list-style: none; }
-.info-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 9px 0;
-  border-bottom: 1px solid #2e2822;
-  font-size: 13px;
-}
-.info-list li:last-child { border-bottom: none; }
-.info-label { color: #8a8278; }
-.info-value { color: #d4cdc4; text-align: right; }
-
-/* STACK SIDEBAR */
-.stack-title {
-  font-size: 12px;
-  color: #8a8278;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 12px;
-}
-
-.stack-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.stack-tag {
-  font-size: 11px;
-  padding: 3px 10px;
-  background: #2a2520;
-  color: #b0a898;
-  border-radius: 14px;
-  border: 1px solid #342e28;
-}
-
-/* MAIN */
-.main { min-width: 0; }
-
-.main-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-.main-header h2 { font-size: 17px; color: #ede6dd; font-weight: 600; }
-.main-header span { font-size: 13px; color: #8a8278; }
-
-.projects {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.project {
-  background: #221e19;
-  border: 1px solid #2e2822;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-.project:hover { border-color: #3a3228; }
-
-.project-title {
-  font-size: 13.5px;
-  color: #ede6dd;
-  padding: 13px 15px 9px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.project-img {
-  width: 100%;
-  aspect-ratio: 16/10;
-  background: #1a1612;
-  border-top: 1px solid #2e2822;
-  border-bottom: 1px solid #2e2822;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.project-img img { width: 100%; height: 100%; object-fit: contain; }
-.project-img .placeholder { text-align: center; color: #5a5045; font-size: 11px; padding: 16px; }
-.project-img .placeholder .icon { font-size: 24px; margin-bottom: 4px; }
-
-.project-desc {
-  font-size: 12.5px;
-  color: #9a9088;
-  padding: 11px 15px 14px;
-  line-height: 1.55;
-}
-
-.project-tags { padding: 0 15px 12px; display: flex; flex-wrap: wrap; gap: 4px; }
-.tag {
-  font-size: 10.5px;
-  padding: 2px 8px;
-  background: #2a2520;
-  color: #8a8278;
-  border-radius: 10px;
-}
-
-.project-link { display: block; padding: 0 15px 12px; font-size: 12px; }
-
-@media (max-width: 900px) {
-  .page { grid-template-columns: 1fr; }
-  .sidebar { position: static; }
-  .projects { grid-template-columns: 1fr; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio d'Abdelkhaled Zerouali — Data Analyst orienté Analytics Engineering et Data Engineering.">
+  <title>Abdelkhaled Zerouali — Data Analyst</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="page">
+  <header class="site-header">
+    <a class="brand" href="#top">AZ.</a>
+    <nav aria-label="Navigation principale">
+      <a href="#projects">Projets</a>
+      <a href="#skills">Compétences</a>
+      <a href="#experience">Expérience</a>
+      <a href="cv.pdf">CV</a>
+    </nav>
+  </header>
 
-  <aside class="sidebar">
-
-    <div class="card profile">
-      <div class="profile-photo">
-        <img src="photo.jpg" alt="Abdelkhaled">
-      </div>
-      <h1>Abdelkhaled Zerouali</h1>
-      <p>Data Engineer (Titre RNCP niveau 7 — OpenClassrooms)<br>
-      Conception de pipelines end-to-end.</p>
-      <a href="cv.pdf" class="btn-cv">Télécharger le CV</a>
-    </div>
-
-    <div class="card">
-      <ul class="info-list">
-        <li><span class="info-label">📍 Localisation</span><span class="info-value">Grenoble, France</span></li>
-        <li><span class="info-label">🎓 Formation</span><span class="info-value">OpenClassrooms Data Engineer</span></li>
-        <li><span class="info-label">💻 GitHub</span><span class="info-value"><a href="https://github.com/Khalid318">Khalid318</a></span></li>
-        <li><span class="info-label">🔗 LinkedIn</span><span class="info-value"><a href="https://www.linkedin.com/in/abdelkhaled-zerouali">LinkedIn</a></span></li>
-        <li><span class="info-label">📧 Email</span><span class="info-value">abdelkhaledzerouali@gmail.com</span></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="stack-title">Technologies</div>
-      <div class="stack-tags">
-        <span class="stack-tag">Python</span>
-        <span class="stack-tag">SQL</span>
-        <span class="stack-tag">PostgreSQL</span>
-        <span class="stack-tag">MongoDB</span>
-        <span class="stack-tag">Docker</span>
-        <span class="stack-tag">Airflow</span>
-        <span class="stack-tag">Kestra</span>
-        <span class="stack-tag">Airbyte</span>
-        <span class="stack-tag">AWS</span>
-        <span class="stack-tag">Power BI</span>
-        <span class="stack-tag">PySpark</span>
-        <span class="stack-tag">Redpanda</span>
-        <span class="stack-tag">LangChain</span>
-        <span class="stack-tag">Faiss</span>
-        <span class="stack-tag">Pandas</span>
-        <span class="stack-tag">Polars</span>
-        <span class="stack-tag">Scikit-learn</span>
-        <span class="stack-tag">SODA Core</span>
-        <span class="stack-tag">Git</span>
-      </div>
-    </div>
-
-  </aside>
-
-  <main class="main">
-    <div class="main-header">
-      <h2>Projets</h2>
-      <span>— Parcours Data Engineer · 12 projets</span>
-    </div>
-
-    <div class="projects">
-
-      <!-- P13 — Système IA du POC au MVP -->
-      <div class="project">
-        <div class="project-title">Système IA du POC au MVP</div>
-        <div class="project-img">
-          <img src="img/p13.png" alt="P13">
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">DATA ANALYST · ANALYTICS & DATA ENGINEERING</p>
+        <h1>Abdelkhaled Zerouali</h1>
+        <p class="intro">
+          2 ans d'expérience sur des données de production en environnement industriel et microélectronique.
+          Je travaille aujourd'hui à renforcer mon profil sur l'ingestion, la transformation, l'orchestration
+          et la qualité des données.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Voir les projets</a>
+          <a class="button" href="https://github.com/Khalid318" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/abdelkhaled-zerouali" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
-        <div class="project-desc">Conception du passage du chatbot RAG vers un MVP production-ready. Architecture cloud AWS, PostgreSQL + pgvector, mémoire conversationnelle, monitoring Langfuse, estimation CAPEX/OPEX (~30$/mois).</div>
-        <div class="project-tags"><span class="tag">AWS</span><span class="tag">pgvector</span><span class="tag">FastAPI</span><span class="tag">Architecture</span><span class="tag">Gestion de projet</span></div>
-        <a class="project-link" href="https://github.com/Khalid318/Khalid318.github.io" target="_blank">Voir le repo →</a>		
-	  </div>
-
-      <!-- P12 — Pipeline ELT -->
-      <div class="project">
-        <div class="project-title">Pipeline ELT — Avantages sportifs</div>
-        <div class="project-img">
-          <img src="img/p12.png" alt="P12">
-        </div>
-        <div class="project-desc">Pipeline ELT complet pour calculer les avantages sportifs de 161 salariés : primes, jours bien-être, alertes Slack, dashboard Power BI. 5 DAGs Airflow, 15 tests SODA.</div>
-        <div class="project-tags"><span class="tag">Airflow</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">SODA</span><span class="tag">Power BI</span></div>
-        <a class="project-link" href="https://github.com/Khalid318/p12-pipeline" target="_blank">Voir le repo →</a>
       </div>
 
-      <!-- P11 — RAG -->
-      <div class="project">
-        <div class="project-title">Conception et déploiement d'un système RAG</div>
-        <div class="project-img">
-          <img src="img/p11.png" alt="P11">
+      <aside class="profile-card" aria-label="Profil">
+        <img src="photo.jpg" alt="Avatar d'Abdelkhaled Zerouali">
+        <div>
+          <strong>Grenoble, France</strong>
+          <span>Disponible immédiatement</span>
         </div>
-        <div class="project-desc">Chatbot RAG pour recommander des événements culturels à Versailles. 1 369 événements collectés via API Open Agenda, vectorisation Mistral, index Faiss.</div>
-        <div class="project-tags"><span class="tag">LangChain</span><span class="tag">Mistral AI</span><span class="tag">Faiss</span><span class="tag">Python</span></div>
-        <a class="project-link" href="https://github.com/Khalid318/p11-RAG_POC" target="_blank">Voir le repo →</a>		      
-	  </div>
+      </aside>
+    </section>
 
-      <!-- P10 — Kestra BottleNeck -->
-      <div class="project">
-        <div class="project-title">Automatisation ETL — Caviste BottleNeck</div>
-        <div class="project-img">
-          <img src="img/p10.png" alt="P10">
+    <section class="section wrap" id="projects">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>Projets</h2>
         </div>
-        <div class="project-desc">Rapprochement automatisé de 3 fichiers Excel, détection d'anomalies (z-score), calcul du CA (70 568,60€), cron mensuel alimenté depuis AWS S3.</div>
-        <div class="project-tags"><span class="tag">Kestra</span><span class="tag">AWS S3</span><span class="tag">DuckDB</span><span class="tag">Python</span></div>
-        <a class="project-link" href="https://github.com/Khalid318/p10-kestra" target="_blank">Voir le repo →</a>		            
-	  </div>
-
-      <!-- P9 — Architecture hybride -->
-      <div class="project">
-        <div class="project-title">Architecture hybride cloud + streaming</div>
-        <div class="project-img">
-          <img src="img/p9.png" alt="P9">
-        </div>
-        <div class="project-desc">Modélisation d'une infra hybride on-premise / AWS pour données IoT. POC streaming : tickets clients en temps réel avec Redpanda, traitement PySpark.</div>
-        <div class="project-tags"><span class="tag">Redpanda</span><span class="tag">PySpark</span><span class="tag">Docker</span><span class="tag">AWS</span></div>
+        <p>Une sélection courte de projets que je peux expliquer techniquement et défendre en entretien.</p>
       </div>
 
-      <!-- P8 — Infrastructure météo -->
-      <div class="project">
-        <div class="project-title">Construire et tester une infrastructure de données</div>
-        <div class="project-img">
-          <img src="img/p8.png" alt="P8">
-        </div>
-        <div class="project-desc">Pipeline de collecte météo pour un fournisseur d'énergie renouvelable. 6 stations intégrées via Airbyte, stockage S3, chargement MongoDB sur AWS ECS.</div>
-        <div class="project-tags"><span class="tag">Airbyte</span><span class="tag">AWS S3/ECS</span><span class="tag">MongoDB</span><span class="tag">Python</span></div>
-      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <a class="project-visual" href="https://github.com/Khalid318/employee-sports-benefits-pipeline" target="_blank" rel="noreferrer">
+            <img src="img/p12.png" alt="Architecture du pipeline Employee Sports Benefits">
+          </a>
+          <div class="project-body">
+            <div class="project-meta">DATA ENGINEERING · ELT</div>
+            <h3>Employee Sports Benefits Pipeline</h3>
+            <p>
+              Pipeline quotidien pour calculer des avantages salariés à partir de données RH et sportives.
+              Ingestion Python, stockage PostgreSQL, transformations SQL, orchestration Airflow, contrôles Soda et restitution Power BI.
+            </p>
+            <div class="tech-row"><span>Python</span><span>PostgreSQL</span><span>Airflow</span><span>Docker</span><span>Soda</span><span>Power BI</span></div>
+            <a class="text-link" href="https://github.com/Khalid318/employee-sports-benefits-pipeline" target="_blank" rel="noreferrer">Voir le repository ↗</a>
+          </div>
+        </article>
 
-      <!-- P7 — MongoDB Airbnb -->
-      <div class="project">
-        <div class="project-title">Base NoSQL — Locations Airbnb</div>
-        <div class="project-img">
-          <img src="img/p7.png" alt="P7">
-        </div>
-        <div class="project-desc">Base MongoDB pour surveiller les locations courte durée à Paris et Lyon. Réplication (haute dispo), sharding géographique (performance), analyses Polars.</div>
-        <div class="project-tags"><span class="tag">MongoDB</span><span class="tag">Polars</span><span class="tag">Docker</span><span class="tag">Power BI</span></div>
+        <article class="project-card">
+          <a class="project-visual" href="https://github.com/Khalid318/bottleneck-sales-orchestration-pipeline" target="_blank" rel="noreferrer">
+            <img src="img/p10.png" alt="Diagramme de flux BottleNeck">
+          </a>
+          <div class="project-body">
+            <div class="project-meta">ORCHESTRATION · DATA QUALITY</div>
+            <h3>BottleNeck Sales Orchestration</h3>
+            <p>
+              Automatisation d'un rapprochement ERP / e-commerce : nettoyage, jointures, calcul du chiffre d'affaires,
+              détection des vins premium par Z-score et exports métiers planifiés chaque mois.
+            </p>
+            <div class="tech-row"><span>Kestra</span><span>DuckDB</span><span>Python</span><span>SQL</span><span>AWS S3</span></div>
+            <a class="text-link" href="https://github.com/Khalid318/bottleneck-sales-orchestration-pipeline" target="_blank" rel="noreferrer">Voir le repository ↗</a>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <!-- P6 — ML énergie -->
-      <div class="project">
-        <div class="project-title">Prédiction de consommation énergétique</div>
-        <div class="project-img">
-          <img src="img/p6.png" alt="P6">
-        </div>
-        <div class="project-desc">Modèle ML pour prédire la consommation des bâtiments de Seattle. Comparaison de 4 algos, R²=0.745 (Random Forest). API BentoML déployée sur AWS EC2.</div>
-        <div class="project-tags"><span class="tag">Scikit-learn</span><span class="tag">BentoML</span><span class="tag">AWS EC2</span><span class="tag">Pandas</span></div>
+    <section class="section wrap two-columns" id="skills">
+      <div>
+        <p class="eyebrow">STACK</p>
+        <h2>Compétences</h2>
+        <p class="section-copy">Les technologies mises en avant ici sont celles que je peux relier à une expérience ou à un projet concret.</p>
       </div>
-
-      <!-- P5 — Healthcare MongoDB -->
-      <div class="project">
-        <div class="project-title">Migration de données Healthcare</div>
-        <div class="project-img">
-          <img src="img/p5.png" alt="P5">
-        </div>
-        <div class="project-desc">Migration de 55 500 dossiers patients (CSV → MongoDB). Authentification 2 niveaux, 3 index, 7 tests pytest. Conteneurisé avec Docker Compose.</div>
-        <div class="project-tags"><span class="tag">MongoDB</span><span class="tag">Docker</span><span class="tag">Python</span><span class="tag">pytest</span></div>
+      <div class="skill-groups">
+        <div class="skill-group"><h3>Analyse & BI</h3><div class="badges"><span>SQL</span><span>Power BI</span><span>Excel</span></div></div>
+        <div class="skill-group"><h3>Programmation</h3><div class="badges"><span>Python</span><span>pandas</span></div></div>
+        <div class="skill-group"><h3>Bases de données</h3><div class="badges"><span>PostgreSQL</span><span>MySQL</span></div></div>
+        <div class="skill-group"><h3>Data Engineering</h3><div class="badges"><span>Docker</span><span>Airflow</span><span>Kestra</span></div></div>
+        <div class="skill-group"><h3>Qualité & versioning</h3><div class="badges"><span>Soda Core</span><span>pytest</span><span>Git</span></div></div>
       </div>
+    </section>
 
-      <!-- P4 — Audit SQL -->
-      <div class="project">
-        <div class="project-title">Audit d'un environnement de données</div>
-        <div class="project-img">
-          <img src="img/p4.png" alt="P4">
-        </div>
-        <div class="project-desc">Audit du CA d'un supermarché. Root cause : insertions tardives (+9 057€). Triggers, procédures stockées et vues SQL pour fiabiliser le reporting Power BI.</div>
-        <div class="project-tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Power BI</span></div>
+    <section class="section wrap" id="experience">
+      <div class="section-heading">
+        <div><p class="eyebrow">BACKGROUND</p><h2>Expérience & formation</h2></div>
       </div>
-
-      <!-- P3 — BDD immobilière -->
-      <div class="project">
-        <div class="project-title">Création d'une BDD immobilière</div>
-        <div class="project-img">
-          <img src="img/p3.png" alt="P3">
-        </div>
-        <div class="project-desc">Schéma normalisé à partir de données DVF. 5 tables (Region, Departement, Commune, Bien, Vente), clés primaires/étrangères, dictionnaire de données.</div>
-        <div class="project-tags"><span class="tag">SQL</span><span class="tag">Modélisation</span></div>
+      <div class="timeline">
+        <article>
+          <div class="timeline-date">2023 — 2025</div>
+          <div><h3>Technicien Production Test Final & Yield · Microoled</h3><p>Analyse du rendement de production, extraction et fiabilisation de données MES / MySQL et exports machines, suivi d'indicateurs sous Power BI, analyses wafer / lot, Pareto de défauts et recherche de causes racines.</p></div>
+        </article>
+        <article>
+          <div class="timeline-date">2025 — 2026</div>
+          <div><h3>OpenClassrooms · Titre RNCP niveau 7</h3><p>Ingénierie et science des données — parcours orienté modélisation, qualité, automatisation et pipelines de données.</p></div>
+        </article>
+        <article>
+          <div class="timeline-date">2019 — 2022</div>
+          <div><h3>Université Grenoble Alpes</h3><p>Licence Économie et Gestion.</p></div>
+        </article>
       </div>
-
-      <!-- P2 — Analyse éducative -->
-      <div class="project">
-        <div class="project-title">Analyse des systèmes éducatifs</div>
-        <div class="project-img">
-          <img src="img/p2.png" alt="P2">
-        </div>
-        <div class="project-desc">Analyse exploratoire de données Banque Mondiale (886 930 lignes). Sélection de 15 indicateurs pour identifier les pays à potentiel éducatif.</div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Jupyter</span></div>
-      </div>
-
-    </div>
+    </section>
   </main>
-</div>
+
+  <footer class="wrap site-footer">
+    <span>Abdelkhaled Zerouali</span>
+    <div>
+      <a href="mailto:abdel-khalid38@outlook.fr">Email</a>
+      <a href="https://github.com/Khalid318" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/abdelkhaled-zerouali" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
 </body>
 </html>
